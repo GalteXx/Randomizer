@@ -1,0 +1,33 @@
+﻿<Window x:Class="Randomizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Randomizer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="_1st" HorizontalAlignment="Left" Height="342" Margin="104,10,0,0" VerticalAlignment="Top" Width="649" d:IsHidden="True">
+            <Button x:Name="button1" Content="Generate" HorizontalAlignment="Left" Height="64" Margin="210,230,0,0" VerticalAlignment="Top" Width="174" Click="button1_Click"/>
+            <TextBox x:Name="numberDisp" Height="35" Margin="148,186,0,0" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="315" IsEnabled="False" HorizontalAlignment="Left"/>
+            <TextBox x:Name="from" HorizontalAlignment="Left" Height="26.409" Margin="148,99.591,0,0" TextWrapping="Wrap" Text="From" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.697"/>
+            <TextBox x:Name="to" HorizontalAlignment="Left" Height="26.409" Margin="210,99.591,0,0" TextWrapping="Wrap" Text="To" VerticalAlignment="Top" Width="50"/>
+        </Grid>
+        <Grid x:Name="_2nd" HorizontalAlignment="Left" Height="333" Margin="89,34,0,0" VerticalAlignment="Top" Width="644" d:IsHidden="True">
+            <TextBox x:Name="DispPass" Height="33" Margin="164,163,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="312" HorizontalAlignment="Left" IsEnabled="False"/>
+            <Button x:Name="btn2" Content="Generate" HorizontalAlignment="Left" Height="63.875" Margin="225,206.125,0,0" VerticalAlignment="Top" Width="174" Click="btn2_Click"/>
+            <RadioButton x:Name="rbSmall" Content="a-z&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,10,0,0" VerticalAlignment="Top" Width="92" IsChecked="True"/>
+            <RadioButton x:Name="rbBig" Content="A-Z&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,35,0,0" VerticalAlignment="Top" Width="92" IsChecked="True"/>
+            <RadioButton x:Name="rbAll" Content="A-z + 0-9&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,60,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBox x:Name="passLength" HorizontalAlignment="Left" Height="26" Margin="164,133,0,0" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" Text="Length" VerticalAlignment="Top" Width="136"/>
+        </Grid>
+        <Grid x:Name="_3rd" HorizontalAlignment="Left" Height="312" Margin="113,55,0,0" VerticalAlignment="Top" Width="620">
+            <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="26" Margin="139,71,0,0" VerticalAlignment="Top" Width="206" Maximum="15" Value="15" Foreground="#FF04FF33"/>
+            <Label x:Name="label1" Content="15 seconds left" HorizontalAlignment="Left" Height="34" Margin="139,47,0,0" VerticalAlignment="Top" Width="206" FontSize="10"/>
+            <TextBox x:Name="Disp" HorizontalAlignment="Left" Height="34.25" Margin="139,141.25,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="314.75" IsEnabled="False"/>
+        </Grid>
+        <RadioButton x:Name="md1" Content="" HorizontalAlignment="Left" Height="15.591" Margin="22.136,10,0,0" VerticalAlignment="Top" Width="12" VerticalContentAlignment="Center" Checked="md1_Checked" IsChecked="True"/>
+        <RadioButton x:Name="md3" Content="" HorizontalAlignment="Left" Height="15.591" Margin="36.386,10,0,0" VerticalAlignment="Top" Width="12." VerticalContentAlignment="Center" Checked="md3_Checked"/>
+        <RadioButton x:Name="md2" Content="" HorizontalAlignment="Left" Height="15.591" Margin="50.011,10,0,0" VerticalAlignment="Top" Width="12" VerticalContentAlignment="Center" Checked="md2_Checked"/>
+    </Grid>
+</Window>

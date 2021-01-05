@@ -1,0 +1,17 @@
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\bin\Debug\Randomizer.exe.config
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\bin\Debug\Randomizer.exe
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\bin\Debug\Randomizer.pdb
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.csprojAssemblyReference.cache
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\MainWindow.g.cs
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\App.g.cs
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer_MarkupCompile.cache
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer_MarkupCompile.lref
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\MainWindow.baml
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.g.resources
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.Properties.Resources.resources
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.csproj.GenerateResource.cache
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.csproj.CoreCompileInputs.cache
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.exe
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Randomizer.pdb
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\Simple Styles.baml
+C:\Users\МАКС\source\repos\Randomizer\Randomizer\obj\Debug\App.baml
