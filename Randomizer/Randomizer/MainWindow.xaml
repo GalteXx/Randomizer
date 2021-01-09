@@ -1,0 +1,202 @@
+﻿<Window x:Class="Randomizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Randomizer"
+
+    mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="SwitchTypeToggleButton"
+           TargetType="{x:Type ToggleButton}">
+
+            <Style.Resources>
+                <Color x:Key="Color.Additional.LightGrey">#989EA8</Color>
+                <Color x:Key="Color.Additional.MediumGrey">#61656B</Color>
+                <Color x:Key="Color.MedtronicBranding.MedtronicBlue">#004B87</Color>
+                <Color x:Key="Color.MedtronicBranding.CobaltBlue">#0085CA</Color>
+
+                <SolidColorBrush x:Key="ToggleButtonFalseBackground"
+                             Color="{StaticResource Color.Additional.LightGrey}" />
+                <SolidColorBrush x:Key="ToggleButtonTrueBackground"
+                             Color="{StaticResource Color.MedtronicBranding.CobaltBlue}" />
+                <SolidColorBrush x:Key="ToggleButtonFalseForeground"
+                             Color="{StaticResource Color.Additional.MediumGrey}" />
+                <SolidColorBrush x:Key="ToggleButtonTrueForeground"
+                             Color="{StaticResource Color.MedtronicBranding.MedtronicBlue}" />
+                <Style x:Key="OnContentControl"
+                   TargetType="ContentControl">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock FontFamily="Wingdings 2"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="P" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+                <Style x:Key="OffContentControl"
+                   TargetType="ContentControl">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock FontSize="12"
+                                       Foreground="White"
+                                       Text="X" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+
+            </Style.Resources>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid x:Name="MainRow">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding ElementName=TopRow, Path=ActualHeight}" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="{Binding ElementName=TopRow, Path=ActualHeight}" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition x:Name="TopRow" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Ellipse x:Name="BackgroundEllipse1"
+                                     Grid.RowSpan="2"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="3"
+                                     Width="{Binding ElementName=MainRow,
+                                                     Path=ActualHeight}"
+                                     Height="{Binding ElementName=MainRow,
+                                                      Path=ActualHeight}"
+                                     HorizontalAlignment="Left"
+                                     Fill="{StaticResource ToggleButtonTrueBackground}" />
+                                <Ellipse x:Name="BackgroundEllipse2"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="2"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="3"
+                                     Width="{Binding ElementName=MainRow,
+                                                     Path=ActualHeight}"
+                                     Height="{Binding ElementName=MainRow,
+                                                      Path=ActualHeight}"
+                                     HorizontalAlignment="Right"
+                                     Fill="{StaticResource ToggleButtonFalseBackground}" />
+                                <Border x:Name="BackgroundBorder"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="1"
+                                    Background="{StaticResource ToggleButtonTrueBackground}" />
+                            </Grid>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="AnimationWidth" />
+                                    <ColumnDefinition Width="{Binding ElementName=MainRow, Path=ActualHeight}" />
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="AnimationSizeBorder"
+                                    Grid.Column="0" />
+                                <ContentControl Grid.Column="0"
+                                            Style="{StaticResource OnContentControl}" />
+                            </Grid>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding ElementName=MainRow, Path=ActualHeight}" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <ContentControl Grid.Column="1"
+                                            Style="{StaticResource OffContentControl}" />
+                            </Grid>
+                            <Grid Background="Transparent">
+                                <StackPanel HorizontalAlignment="Left"
+                                        Orientation="Horizontal">
+                                    <Border Width="{Binding ElementName=AnimationSizeBorder, Path=ActualWidth}" />
+                                    <Ellipse x:Name="ForegroundEllipse"
+                                         Width="{Binding ElementName=MainRow,
+                                                         Path=ActualHeight}"
+                                         Height="{Binding ElementName=MainRow,
+                                                          Path=ActualHeight}"
+                                         HorizontalAlignment="Right"
+                                         Fill="{StaticResource ToggleButtonTrueForeground}" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="BackgroundBorder" Property="Background" Value="{StaticResource ToggleButtonFalseBackground}" />
+                                <Setter TargetName="ForegroundEllipse" Property="Fill" Value="{StaticResource ToggleButtonFalseForeground}" />
+                                <!--<Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="AnimationSizeBorder"  Storyboard.TargetProperty="(Border.Width)" To="0" Duration="0:0:3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="AnimationSizeBorder"  Storyboard.TargetProperty="(Border.Width)" From="0" Duration="0:0:3"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions> -->
+                                <Setter TargetName="AnimationSizeBorder" Property="Width" Value="0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid x:Name="allItems" Background="#FF292929">
+        <Grid x:Name="_1st" HorizontalAlignment="Left" Height="342" Margin="104,10,0,0" VerticalAlignment="Top" Width="649" d:IsHidden="True">
+            <Button x:Name="button1" Content="Generate" HorizontalAlignment="Left" Height="64" Margin="197,247,0,0" VerticalAlignment="Top" Width="174" Click="button1_Click" Background="#FF252526" BorderBrush="White" Foreground="White"/>
+            <TextBox x:Name="numberDisp" Height="35" Margin="148,186,0,0" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="315" HorizontalAlignment="Left" Background="#FF1B1B1C" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC"/>
+            <TextBox x:Name="from" HorizontalAlignment="Left" Height="26.409" Margin="148,99.591,0,0" TextWrapping="Wrap" Text="From" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.697" Foreground="White" Background="#FF333337" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC" GotFocus="from_GotFocus"/>
+            <TextBox x:Name="to" HorizontalAlignment="Left" Height="26.409" Margin="210,99.591,0,0" TextWrapping="Wrap" Text="To" VerticalAlignment="Top" Width="50" Background="#FF333337" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC" GotFocus="to_GotFocus"/>
+        </Grid>
+        <Grid x:Name="_2nd" HorizontalAlignment="Left" Height="333" Margin="89,34,0,0" VerticalAlignment="Top" Width="644">
+            <TextBox x:Name="DispPass" Height="33" Margin="164,163,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="312" HorizontalAlignment="Left" Background="#FF1B1B1C" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC"/>
+            <Button x:Name="btn2" Content="Generate" HorizontalAlignment="Left" Height="63.875" Margin="211.5,223.125,0,0" VerticalAlignment="Top" Width="174" Click="btn2_Click" Background="#FF252526" Foreground="White" BorderBrush="{x:Null}"/>
+            <RadioButton x:Name="rbSmall" Content="a-z&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,15,0,0" VerticalAlignment="Top" Width="92" IsChecked="True" Foreground="White"/>
+            <RadioButton x:Name="rbBig" Content="A-Z&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,35,0,0" VerticalAlignment="Top" Width="92" IsChecked="True" Foreground="White"/>
+            <RadioButton x:Name="rbAll" Content="A-z + 0-9&#xD;&#xA;" HorizontalAlignment="Left" Height="20" Margin="25,74,0,0" VerticalAlignment="Top" Width="92" Foreground="White"/>
+            <RadioButton x:Name="rbNum" Content="0-9" HorizontalAlignment="Left" Height="19" Margin="25,55,0,0" VerticalAlignment="Top" Width="93" Foreground="White"/>
+            <TextBox x:Name="passLength" HorizontalAlignment="Left" Height="26" Margin="164,114,0,0" TextWrapping="Wrap" Text="Length" VerticalAlignment="Top" Width="136" Background="#FF333337" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC" GotFocus="passLength_GotFocus"/>
+        </Grid>
+        <Grid x:Name="_3rd" HorizontalAlignment="Left" Height="312" Margin="113,55,0,0" VerticalAlignment="Top" Width="620" d:IsHidden="True">
+            <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="26" Margin="139,71,0,0" VerticalAlignment="Top" Width="206" Maximum="15" Value="15" Foreground="#FF04FF33">
+                <ProgressBar.Background>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FFBABABA" Offset="0"/>
+                        <GradientStop Color="#FFC7C7C7" Offset="0.5"/>
+                        <GradientStop Color="#FF333337" Offset="1"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Background>
+            </ProgressBar>
+            <Label x:Name="label1" Content="15 seconds left" HorizontalAlignment="Left" Height="34" Margin="139,47,0,0" VerticalAlignment="Top" Width="206" FontSize="10" Foreground="White"/>
+            <TextBox x:Name="Disp" HorizontalAlignment="Left" Height="34.25" Margin="139,141.25,0,0" TextWrapping="Wrap" Text="Random Code" VerticalAlignment="Top" Width="314.75" Foreground="White" Background="#FF1B1B1C" BorderBrush="{x:Null}" SelectionBrush="#FF007ACC"/>
+        </Grid>
+        <RadioButton x:Name="md1" Content="" HorizontalAlignment="Left" Height="15.591" Margin="22.136,10,0,0" VerticalAlignment="Top" Width="12" VerticalContentAlignment="Center" Checked="md1_Checked" IsChecked="True"/>
+        <RadioButton x:Name="md3" Content="" HorizontalAlignment="Left" Height="15.591" Margin="36.386,10,0,0" VerticalAlignment="Top" Width="12." VerticalContentAlignment="Center" Checked="md3_Checked"/>
+        <RadioButton x:Name="md2" Content="" HorizontalAlignment="Left" Height="15.591" Margin="50.011,10,0,0" VerticalAlignment="Top" Width="12" VerticalContentAlignment="Center" Checked="md2_Checked"/>
+        <ToggleButton x:Name="DM" Content="ToggleButton" HorizontalAlignment="Left" Height="20" Margin="22.136,367,0,0" VerticalAlignment="Top" Width="40" Style="{DynamicResource SwitchTypeToggleButton}" Checked="DM_Checked" Unchecked="DM_Unchecked" Visibility="Hidden"/>
+    </Grid>
+</Window>
